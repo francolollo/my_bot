@@ -22,13 +22,13 @@ def generate_launch_description():
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory(package_name),'launch','rsp.launch.py'
-                )]), launch_arguments={'use_sim_time': 'false', 'use_ros2_control': 'true'}.items()
+                )]), launch_arguments={'use_sim_time': 'true', 'use_ros2_control': 'true'}.items()
     )
 
     joystick = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory(package_name),'launch','joystick.launch.py'
-                )]), launch_arguments={'use_sim_time': 'false'}.items()
+                )]), launch_arguments={'use_sim_time': 'true'}.items()
     )
 
     twist_mux_params = os.path.join(get_package_share_directory(package_name),'config','twist_mux.yaml')
@@ -51,7 +51,7 @@ def generate_launch_description():
     # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.
     spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
                         arguments=['-topic', 'robot_description',
-                                   '-entity', 'robot'],
+                                   '-entity', 'my_bot'],
                         output='screen')
 
 
