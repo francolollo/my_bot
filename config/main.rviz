@@ -8,6 +8,7 @@ Panels:
         - /Map1
         - /Map1/Topic1
         - /Map2
+        - /Path1
       Splitter Ratio: 0.5
     Tree Height: 654
   - Class: rviz_common/Selection
@@ -55,15 +56,9 @@ Visualization Manager:
           Value: true
         base_link:
           Value: true
-        camera_link:
-          Value: true
-        camera_link_optical:
-          Value: true
         caster_wheel:
           Value: true
         chassis:
-          Value: true
-        face_link:
           Value: true
         laser_frame:
           Value: true
@@ -82,25 +77,19 @@ Visualization Manager:
       Show Names: false
       Tree:
         map:
-          {}
-        odom:
-          base_link:
-            base_footprint:
-              {}
-            chassis:
-              camera_link:
-                camera_link_optical:
+          odom:
+            base_link:
+              base_footprint:
+                {}
+              chassis:
+                caster_wheel:
                   {}
-              caster_wheel:
+                laser_frame:
+                  {}
+              left_wheel:
                 {}
-              face_link:
+              right_wheel:
                 {}
-              laser_frame:
-                {}
-            left_wheel:
-              {}
-            right_wheel:
-              {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -129,26 +118,12 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        camera_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        camera_link_optical:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         caster_wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
         chassis:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        face_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -190,7 +165,7 @@ Visualization Manager:
       Max Color: 255; 255; 255
       Max Intensity: 15
       Min Color: 0; 0; 0
-      Min Intensity: 15
+      Min Intensity: 8
       Name: LaserScan
       Position Transformer: XYZ
       Selectable: true
@@ -246,6 +221,33 @@ Visualization Manager:
         Value: /global_costmap/costmap_updates
       Use Timestamp: false
       Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz_default_plugins/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /plan
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -288,7 +290,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 0.065000019967556
+      Angle: -1.5600001811981201
       Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -298,7 +300,7 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 80.10248565673828
+      Scale: 106.1947021484375
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz_default_plugins)
       X: 0.3507169485092163
